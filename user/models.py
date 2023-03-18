@@ -28,26 +28,24 @@ class User(models.Model):
         return self.first_name + ' ' + self.last_name
 
 
-PARTY_CHOICES = [
-    ('PDP', 'PDP'),
-    ('APC', 'APC'),
-    ('LP', 'LP'),
-    ('NNPP', 'NNPP'),
-    ('ACN', 'ACN'),
-    ('CPP', 'CPP'),
-    ('CPC', 'CPC')
-]
-
-VOTE_CATEGORY_CHOICES = [
-    ('President', 'President'),
-    ('Governor', 'Governor'),
-    ('House of Representatives', 'House of Representatives'),
-    ('Senate', 'Senate'),
-    ('House of Assembly', 'House of Assembly')
-]
-
-
 class Candidate(models.Model):
+    VOTE_CATEGORY_CHOICES = (
+        ('President', 'President'),
+        ('Governor', 'Governor'),
+        ('House of Representatives', 'House of Representatives'),
+        ('Senate', 'Senate'),
+        ('House of Assembly', 'House of Assembly')
+    )
+
+    PARTY_CHOICES = (
+        ('PDP', 'PDP'),
+        ('APC', 'APC'),
+        ('LP', 'LP'),
+        ('NNPP', 'NNPP'),
+        ('ACN', 'ACN'),
+        ('CPP', 'CPP'),
+        ('CPC', 'CPC')
+    )
     id = models.CharField(max_length=100, primary_key=True)
     full_name = models.CharField(max_length=100)
     party = models.CharField(max_length=10, choices=PARTY_CHOICES)
